@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <limits>
 
 #ifdef _WIN32
 #  include <Windows.h>
@@ -76,6 +77,16 @@ void flecha(int x, int y) {
     imprimirTextoConFondo("      \\\\", x, y + 1, 15, 8);
     imprimirTextoConFondo("      //", x, y + 2, 15, 8);
     imprimirTextoConFondo(" ----//", x, y + 3, 15, 8);
+}
+
+inline void pauseConsole() {
+#ifdef _WIN32
+    system("pause>0");
+#else
+    cout << "Presione ENTER para continuar...";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+#endif
 }
 
 void textoRecibo(int x, int y)

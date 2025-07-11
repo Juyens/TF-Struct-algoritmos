@@ -59,7 +59,7 @@ int main()
     }
 
     proxy = 0;
-    system("pause>0");
+    pauseConsole();
     limpiar();
 
     int opcion;
@@ -109,7 +109,7 @@ int main()
                             Usuario nuevo(nombre, edad, genero, contrasenia);
                             users.insert(userIdCounter++, nuevo);
                             cout << "Usuario agregado con ID " << userIdCounter - 1 << endl;
-                            system("pause>0");
+                            pauseConsole();
                             break;
                         }
                         case 2:
@@ -120,7 +120,7 @@ int main()
                             Usuario* u = users.find(id);
                             if (u) u->mostrarUsuario();
                             else cout << "No encontrado.\n";
-                            system("pause>0");
+                            pauseConsole();
                             break;
                         }
                         case 3:
@@ -130,7 +130,7 @@ int main()
                             cin >> id;
                             users.erase(id);
                             cout << "Intento de eliminacion realizado.\n";
-                            system("pause>0");
+                            pauseConsole();
                             break;
                         }
                         case 4:
@@ -143,7 +143,7 @@ int main()
                                     bucket[j].value.mostrarUsuario();
                                 }
                             }
-                            system("pause>0");
+                            pauseConsole();
                             break;
                         }
                         }
@@ -176,7 +176,7 @@ int main()
                             cout << "Historial de pedidos:\n";
                             for (uint i = 0; i < pedidosHistorial.size(); ++i)
                                 cout << "- " << pedidosHistorial[i] << endl;
-                            system("pause>0");
+                            pauseConsole();
                             break;
                         }
                     }
@@ -224,7 +224,7 @@ int main()
                                     cout << "  - " << to << " (distancia: " << dist << ")\n";
                                     });
                                 });
-                            system("pause>0");
+                            pauseConsole();
                             break;
                         }
                         }
@@ -239,7 +239,7 @@ int main()
         }
         default:
             imprimirTextoConFondo("Opcion invalida", 3, 40, 12, 8);
-            system("pause>0");
+            pauseConsole();
             break;
         }
 

@@ -24,7 +24,7 @@ public:
         direccionCreada = true;
         direcciones.push(direccionActual);
         cout << "Direccion creada y guardada." << endl;
-        system("pause>0");
+        pauseConsole();
     }
 
     void RealizarPedido() {
@@ -69,7 +69,7 @@ public:
                     else if (!(seleccion > 0 && seleccion < 8)) {
                         cout << endl << "La cantidad total es: " << total;
                         BoletaPrecio.push_back(total);
-                        system("pause>0");
+                        pauseConsole();
                         ciclo = false;
                         return;
                     }
@@ -103,7 +103,7 @@ public:
                     else if (!(seleccion > 0 && seleccion < 8)) {
                         cout << endl << "La cantidad total es: " << total;
                         BoletaPrecio.push_back(total);
-                        system("pause>0");
+                        pauseConsole();
                         ciclo = false;
                         return;
                     }
@@ -135,7 +135,7 @@ public:
                     else if (!(seleccion > 0 && seleccion < 8)) {
                         cout << endl << "La cantidad total es: " << total;
                         BoletaPrecio.push_back(total);
-                        system("pause>0");
+                        pauseConsole();
                         ciclo = false;
                         return;
                     }
@@ -167,7 +167,7 @@ public:
                     else if (!(seleccion > 0 && seleccion < 8)) {
                         cout << endl << "La cantidad total es: " << total;
                         BoletaPrecio.push_back(total);
-                        system("pause>0");
+                        pauseConsole();
                         ciclo = false;
                         return;
                     }
@@ -180,7 +180,7 @@ public:
 
             cout << endl << "Pedido realizado desde " << restauranteSeleccionado
                 << " a la direccion " << direccionActual.getDireccion() << endl;
-            system("pause>0");
+            pauseConsole();
         }
         while (res != 0);
     }
