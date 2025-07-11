@@ -1,7 +1,7 @@
 #pragma once
 
 #include "iostream"
-using namespace System;
+#include "Textos.h"
 using namespace std;
 
 

@@ -1,9 +1,23 @@
 #pragma once
 
 #include <iostream>
-#include <Windows.h>
+
+#ifdef _WIN32
+#  include <Windows.h>
+#endif
 
 using namespace std;
+
+#ifndef _WIN32
+enum ConsoleColor { DarkGray, Yellow, White, DarkYellow, DarkGreen, Red, Cyan, Gray };
+struct ConsoleType {
+    static int ForegroundColor;
+    static void Clear() { cout << "\033[2J\033[H"; }
+    static void SetCursorPosition(int x, int y) { cout << "\033[" << y << ';' << x << 'H'; }
+};
+inline int ConsoleType::ForegroundColor = 0;
+using Console = ConsoleType;
+#endif
 
 void limpiar()
 {
@@ -26,6 +40,7 @@ void borrar(int x, int y, int piso)
 }
 
 void imprimirTextoConFondo(const string& texto, int x, int y, int colorTexto, int colorFondo) {
+#ifdef _WIN32
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     COORD pos = { (SHORT)x, (SHORT)y };
     DWORD written;
@@ -38,6 +53,10 @@ void imprimirTextoConFondo(const string& texto, int x, int y, int colorTexto, in
     SetConsoleCursorPosition(hConsole, pos);
     cout << texto;
     SetConsoleTextAttribute(hConsole, 7);
+#else
+    cursor(x, y);
+    cout << texto;
+#endif
 }
 
 void flecha(int x, int y) {

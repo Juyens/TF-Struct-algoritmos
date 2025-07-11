@@ -3,6 +3,10 @@
 #include "Restaurante.h"
 #include "Direccion.h"
 #include "Ordenamientos.h"
+#include "List.h"
+
+extern List<double> BoletaPrecio;
+extern List<string> BoletaProducto;
 
 class Pedido {
 private:

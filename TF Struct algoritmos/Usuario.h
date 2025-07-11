@@ -3,7 +3,6 @@
 #include <queue>
 #include <fstream>
 
-#include "conio.h"
 
 using namespace std;
 
@@ -27,6 +26,6 @@ public:
 
     void mostrarUsuario() const {
         cout << "Nombre: " << nombre << ", Edad: " << edad
-            << ", Género: " << genero << endl;
+            << ", GÃ©nero: " << genero << endl;
     }
 };
