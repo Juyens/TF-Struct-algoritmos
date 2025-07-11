@@ -3,6 +3,7 @@
 #include <string>
 #include <queue>
 #include <iostream>
+#include "Textos.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ auto agregarDireccion = [] (queue<Direccion>& direcciones)-> void
     getline(cin, nueva);
     direcciones.push(Direccion(nueva));
     cout << "Direccion agregada" << endl;
-    system("pause>0");
+    pauseConsole();
     };
 
 auto mostrarDirecciones = [] (queue<Direccion> direcciones)-> void 
@@ -47,7 +48,7 @@ auto mostrarDirecciones = [] (queue<Direccion> direcciones)-> void
             direcciones.pop();
         }
     }
-    system("pause>0");
+    pauseConsole();
     };
 
 void mostrarDireccionesRecursivo(queue<Direccion> direcciones)
@@ -57,5 +58,5 @@ void mostrarDireccionesRecursivo(queue<Direccion> direcciones)
     direcciones.front().mostrar();
     direcciones.pop();
     mostrarDireccionesRecursivo(direcciones);
-    system("pause>0");
+    pauseConsole();
 }

@@ -87,34 +87,34 @@ void ordenarProductosPorRestaurante() {
             cout << "\nProductos ordenados (Ensaladas):\n";
             for (auto& p : ProductosEnsalada)
                 cout << p.nombre << " - S/." << p.precio << endl;
-            system("pause>0");
+            pauseConsole();
             break;
         case 2:
             OrdenamientoInsersion<int>(ProductosFruta);
             cout << "\nProductos ordenados (Frutas):\n";
             for (auto& p : ProductosFruta)
                 cout << p.nombre << " - S/." << p.precio << endl;
-            system("pause>0");
+            pauseConsole();
             break;
         case 3:
             Ordenamientointercambio<int>(ProductosRestaurante);
             cout << "\nProductos ordenados (Comida):\n";
             for (auto& p : ProductosRestaurante)
                 cout << p.nombre << " - S/." << p.precio << endl;
-            system("pause>0");
+            pauseConsole();
             break;
         case 4:
             OrdenamientoSleccion<int>(ProductosPostres);
             cout << "\nProductos ordenados (Postres):\n";
             for (auto& p : ProductosPostres)
                 cout << p.nombre << " - S/." << p.precio << endl;
-            system("pause>0");
+            pauseConsole();
             break;
         case 5:
             return;
         default:
             cout << "Opcion invalida\n";
-            system("pause>0");
+            pauseConsole();
             limpiar();
             imprimiropcion4();
         }
