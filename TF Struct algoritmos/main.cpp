@@ -7,14 +7,28 @@
 #include "Graph.h"
 #include "Usuario.h"
 
-#include <conio.h>
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <queue>
+#ifdef _WIN32
+#include <conio.h>
+#else
+#include <termios.h>
+#include <unistd.h>
+int getch() {
+    termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    int ch = getchar();
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    return ch;
+}
+#endif
 
 using namespace std;
-using namespace System;
 
 List<string> libroReclamos;
 List<double> BoletaPrecio;
@@ -174,7 +188,7 @@ int main()
                     int sub;
                     do {
                         system("cls");
-                        cout << "1. Añadir punto\n";
+                        cout << "1. AÃ±adir punto\n";
                         cout << "2. Conectar puntos\n";
                         cout << "3. Mostrar conexiones\n";
                         cout << "0. Volver\n";
