@@ -8,16 +8,28 @@
 
 using namespace std;
 
-#ifndef _WIN32
 enum ConsoleColor { DarkGray, Yellow, White, DarkYellow, DarkGreen, Red, Cyan, Gray };
+
 struct ConsoleType {
     static int ForegroundColor;
-    static void Clear() { cout << "\033[2J\033[H"; }
-    static void SetCursorPosition(int x, int y) { cout << "\033[" << y << ';' << x << 'H'; }
+    static void Clear();
+    static void SetCursorPosition(int x, int y);
 };
+
+#ifdef _WIN32
 inline int ConsoleType::ForegroundColor = 0;
-using Console = ConsoleType;
+inline void ConsoleType::Clear() { system("cls"); }
+inline void ConsoleType::SetCursorPosition(int x, int y) {
+    COORD pos = { static_cast<SHORT>(x), static_cast<SHORT>(y) };
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
+#else
+inline int ConsoleType::ForegroundColor = 0;
+inline void ConsoleType::Clear() { cout << "\033[2J\033[H"; }
+inline void ConsoleType::SetCursorPosition(int x, int y) { cout << "\033[" << y << ';' << x << 'H'; }
 #endif
+
+using Console = ConsoleType;
 
 void limpiar()
 {
